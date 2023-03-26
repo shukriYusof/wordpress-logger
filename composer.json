@@ -1,7 +1,6 @@
 {
     "name": "osky/wordpress-plugin-logger",
     "description": "You can use logger to debug plugin instead of var_dump",
-    "type": "library",
     "require": {
         "composer": "^2.5"
     },
