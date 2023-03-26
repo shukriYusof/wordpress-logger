@@ -4,7 +4,7 @@ declare (strict_types=1);
 
 namespace Osky\WordpressPluginLogger\Config;
 
-class Path 
+class Path
 {
     const EXT = '.log';
     const FILENAME = 'logger';
@@ -20,13 +20,13 @@ class Path
 
     public function setPluginName($name)
     {
-        $this->pluginName = $name ? $name : basename( plugin_dir_path(  dirname( __FILE__ , 2 ) ) );
+        $this->pluginName = $name ? $name : basename((  dirname( __FILE__ , 6 )));
         return $this;
     }
 
     public function wordpress()
     {
-        
+
         if (!file_exists('log/')) {
             $this->createDirectory(false, 'log/');
         }
@@ -36,17 +36,17 @@ class Path
 
     public function wordpressPlugin()
     {
-        if (!file_exists(WP_PLUGIN_DIR . '/' . $this->pluginName . '/log/')) {
-            $this->createDirectory(true, WP_PLUGIN_DIR . '/' . $this->pluginName . '/log/');
+        if (!file_exists(dirname((__FILE__), 6). '/' . $this->pluginName . '/log/')) {
+            $this->createDirectory(true, dirname((__FILE__), 6) . '/' . $this->pluginName . '/log/');
         }
-        return $this->path = WP_PLUGIN_DIR . '/' . $this->pluginName . '/log/' . self::FILENAME . self::EXT;
+        return $this->path = dirname((__FILE__), 6) . '/' . $this->pluginName . '/log/' . self::FILENAME . self::EXT;
     }
 
     private function createDirectory($isPlugin, $path)
     {
         if ($isPlugin) {
             if (!file_exists($path)) {
-                wp_mkdir_p($path);
+                mkdir($path, 0755, true);
                 if (!file_exists($path . self::FILENAME . self::EXT)) {
                     fopen($path . self::FILENAME . self::EXT, 'w');
                 }
