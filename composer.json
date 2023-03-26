@@ -1,0 +1,23 @@
+{
+    "name": "osky/wordpress-plugin-logger",
+    "description": "You can use logger to debug plugin instead of var_dump",
+    "type": "composer-plugin",
+    "require": {
+        "composer": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Osky\\WordpressPluginLogger\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Shukri Yusof",
+            "email": "shukri.yusof@osky.com.au"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "^10.1@dev"
+    }
+}
