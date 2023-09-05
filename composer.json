@@ -1,6 +1,10 @@
 {
     "name": "osky/wordpress-plugin-logger",
     "description": "You can use logger to debug plugin instead of var_dump",
+    "license": "MIT",
+    "type": "project",
+    "minimum-stability": "dev",
+    "version": "1.0.0",
     "require": {
         "composer": "^2.5"
     },
@@ -15,9 +19,8 @@
             "email": "shukri.yusof@osky.com.au"
         }
     ],
-    "type": "project",
-    "minimum-stability": "dev",
     "require-dev": {
         "phpunit/phpunit": "^10.1@dev"
     }
+    
 }
